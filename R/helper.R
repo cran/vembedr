@@ -24,13 +24,13 @@
 #'   secs("3m15s")
 #'   secs("1h1m5s")
 #'
-#' @seealso \code{\link{embed_youtube}}
+#' @seealso \code{\link{embed_youtube}}, \code{\link{hms}}
 #' @export
 #
 secs <- function(x){
 
   parse <- function(x, char){
-    regex <- paste0("(\\d*)", char)
+    regex <- paste0("(\\d+)", char)
 
     if (stringr::str_detect(x, regex)){
       num <- as.numeric(stringr::str_match(x, regex)[[2]])
@@ -44,8 +44,31 @@ secs <- function(x){
   hours <- parse(x, "h")
   minutes <- parse(x, "m")
   seconds <- parse(x, "s")
+  only_seconds <- parse(x, "$") # capture one-or-more digits at the end of a string
 
-  result <- seconds + 60*(minutes + 60*hours)
+  result <- only_seconds + seconds + 60*(minutes + 60*hours)
 
   result
+}
+
+#' creates an hours-minutes-seconds string
+#'
+#' @param x, numeric (number of seconds), or character (i.e. "3m15s")
+#'
+#' @return character string (i.e. "0h3m15s")
+#' @seealso \code{\link{secs}}
+#' @export
+#' @examples
+#'   hms(30)
+#'   hms("3m15s")
+#'
+hms <- function(x){
+
+  seconds <- secs(x)
+
+  h <- floor(seconds/3600)
+  m <- floor((seconds %% 3600)/60)
+  s <- floor(seconds %% 60)
+
+  paste0(h, "h", m, "m", s, "s")
 }

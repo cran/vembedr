@@ -1,6 +1,6 @@
 Package: vembedr
 Title: Functions to Embed Video in HTML
-Version: 0.1.0
+Version: 0.1.1
 Authors@R: c(
     person("Ian", "Lyttle", email = "ian.lyttle@schneider-electric.com", role = c("aut", "cre", "cph"))
   )
@@ -10,15 +10,15 @@ Depends: R (>= 3.3.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: htmltools, httr, stringr
+Imports: htmltools, httr, stringr, magrittr
 RoxygenNote: 5.0.1
 URL: https://github.com/ijlyttle/vembedr
 BugReports: https://github.com/ijlyttle/vembedr/issues
 Suggests: testthat, knitr, rmarkdown, covr
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2016-05-27 16:20:09 UTC; ijlyttle
+Packaged: 2016-07-15 14:34:36 UTC; ijlyttle
 Author: Ian Lyttle [aut, cre, cph]
 Maintainer: Ian Lyttle <ian.lyttle@schneider-electric.com>
 Repository: CRAN
-Date/Publication: 2016-05-27 18:38:56
+Date/Publication: 2016-07-15 17:34:10

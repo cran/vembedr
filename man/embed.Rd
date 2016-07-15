@@ -2,15 +2,24 @@
 % Please edit documentation in R/embed.R
 \name{embed}
 \alias{embed}
+\alias{embed_channel9}
+\alias{embed_user2016}
 \alias{embed_vimeo}
 \alias{embed_youtube}
 \title{Creates an iframe for video-embedding}
 \usage{
 embed_vimeo(id, width = 500, height = 281, frameborder = 0,
-  allow_full_screen = TRUE, query = NULL)
+  allow_full_screen = TRUE, allowfullscreen = TRUE, query = NULL,
+  fragment = NULL)
 
 embed_youtube(id, width = 420, height = 315, frameborder = 0,
-  allow_full_screen = TRUE, query = NULL)
+  allow_full_screen = TRUE, allowfullscreen = TRUE, query = NULL)
+
+embed_user2016(id, width = 560, height = 315, frameborder = 0,
+  allowfullscreen = TRUE)
+
+embed_channel9(id, width = 560, height = 315, frameborder = 0,
+  allowfullscreen = TRUE)
 }
 \arguments{
 \item{id}{character, identifier provided by the service}
@@ -21,9 +30,14 @@ embed_youtube(id, width = 420, height = 315, frameborder = 0,
 
 \item{frameborder}{numeric, size of frame border (px)}
 
-\item{allow_full_screen}{logical, indicates if to allow fullscreen}
+\item{allow_full_screen}{logical, indicates if to allow fullscreen
+(deprecated in favor of \code{allowfullscreen})}
 
-\item{query}{list of items to include in query string}
+\item{allowfullscreen}{logical, indicates if to allow fullscreen}
+
+\item{query}{list of items to include in url-query string}
+
+\item{fragment}{character, string to include as url-fragment}
 }
 \value{
 html \code{<iframe>} element
@@ -46,6 +60,7 @@ according to the service being used:
 \examples{
 embed_vimeo("45196609")
 embed_youtube("dQw4w9WgXcQ")
+embed_user2016("Literate-Programming")
 embed_youtube("8SGif63VW6E", query = list(start = secs("4m12s")))
 
 }
