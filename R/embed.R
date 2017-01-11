@@ -1,37 +1,37 @@
-#' Creates an iframe for video-embedding
+#' Embed a video into an HTML document
 #'
-#' These functions are used to embed video into your RMarkdown html documents,
-#' or into your Shiny apps. There are currently functions for you to embed from
-#' either YouTube or Vimeo.
+#' These functions are used to embed video into your \strong{rmarkdown} html-documents,
+#' or into your \strong{shiny} apps. There are functions to embed from
+#' YouTube, Vimeo, and Microsoft Channel 9 (who host the UseR! 2016 videos).
 #'
-#' Both of these services allow you to customize a lot of things by specifying
+#' These services allow you to customize a lot of things by specifying
 #' an optional query string. The specification for the query string will differ
 #' according to the service being used:
 #'
 #' \describe{
 #'   \item{YouTube}{\url{https://developers.google.com/youtube/player_parameters}}
 #'   \item{Vimeo}{\url{https://developer.vimeo.com/player/embedding}}
+#'   \item{Channel 9}{\url{https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/Forty-years-of-S}
+#'   (click the \emph{Embed} tab)}
 #' }
 #'
 #' @param id                character, identifier provided by the service
 #' @param height            numeric, height of iframe (px)
 #' @param width             numeric, width of iframe (px)
 #' @param frameborder       numeric, size of frame border (px)
-#' @param allow_full_screen logical, indicates if to allow fullscreen
-#'   (deprecated in favor of \code{allowfullscreen})
-#' @param allowfullscreen logical, indicates if to allow fullscreen
+#' @param allowfullscreen   logical, indicates if to allow fullscreen
 #' @param query             list of items to include in url-query string
 #' @param fragment          character, string to include as url-fragment
 #'
-#' @return html \code{<iframe>} element
+#' @return An embed object that prints an \code{htmltools::\link[htmltools]{tags}$iframe} element
 #'
 #' @name embed
 #' @family embed
+#' @seealso \code{\link{use_start_time}}
 #' @examples
-#' embed_vimeo("45196609")
 #' embed_youtube("dQw4w9WgXcQ")
+#' embed_vimeo("45196609")
 #' embed_user2016("Literate-Programming")
-#' embed_youtube("8SGif63VW6E", query = list(start = secs("4m12s")))
 #'
 NULL
 
@@ -39,17 +39,8 @@ NULL
 #' @export
 #
 embed_vimeo <- function(id, width = 500, height = 281,
-                        frameborder = 0, allow_full_screen = TRUE,
-                        allowfullscreen = TRUE,
+                        frameborder = 0, allowfullscreen = TRUE,
                         query = NULL, fragment = NULL){
-
-  if (!missing(allow_full_screen)){
-    warning(
-      "argument allow_full_screen is deprecated; please use allowfullscreen instead.",
-      call. = FALSE
-    )
-    allowfullscreen <- allow_full_screen
-  }
 
   allowfullscreen <- .convert_allowfullscreen(allowfullscreen)
 
@@ -61,6 +52,7 @@ embed_vimeo <- function(id, width = 500, height = 281,
   url$fragment <- fragment
 
   embed <- htmltools::tags$iframe(
+    class = "vimeo-embed",
     src = httr::build_url(url),
     width = width,
     height = height,
@@ -79,17 +71,8 @@ embed_vimeo <- function(id, width = 500, height = 281,
 #' @export
 #
 embed_youtube <- function(id, width = 420, height = 315,
-                          frameborder = 0, allow_full_screen = TRUE,
-                          allowfullscreen = TRUE,
+                          frameborder = 0, allowfullscreen = TRUE,
                           query = NULL){
-
-  if (!missing(allow_full_screen)){
-    warning(
-      "argument allow_full_screen is deprecated; please use allowfullscreen instead.",
-      call. = FALSE
-    )
-    allowfullscreen <- allow_full_screen
-  }
 
   allowfullscreen <- .convert_allowfullscreen(allowfullscreen)
 

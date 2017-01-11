@@ -6,14 +6,13 @@
 \alias{embed_user2016}
 \alias{embed_vimeo}
 \alias{embed_youtube}
-\title{Creates an iframe for video-embedding}
+\title{Embed a video into an HTML document}
 \usage{
 embed_vimeo(id, width = 500, height = 281, frameborder = 0,
-  allow_full_screen = TRUE, allowfullscreen = TRUE, query = NULL,
-  fragment = NULL)
+  allowfullscreen = TRUE, query = NULL, fragment = NULL)
 
 embed_youtube(id, width = 420, height = 315, frameborder = 0,
-  allow_full_screen = TRUE, allowfullscreen = TRUE, query = NULL)
+  allowfullscreen = TRUE, query = NULL)
 
 embed_user2016(id, width = 560, height = 315, frameborder = 0,
   allowfullscreen = TRUE)
@@ -30,9 +29,6 @@ embed_channel9(id, width = 560, height = 315, frameborder = 0,
 
 \item{frameborder}{numeric, size of frame border (px)}
 
-\item{allow_full_screen}{logical, indicates if to allow fullscreen
-(deprecated in favor of \code{allowfullscreen})}
-
 \item{allowfullscreen}{logical, indicates if to allow fullscreen}
 
 \item{query}{list of items to include in url-query string}
@@ -40,28 +36,32 @@ embed_channel9(id, width = 560, height = 315, frameborder = 0,
 \item{fragment}{character, string to include as url-fragment}
 }
 \value{
-html \code{<iframe>} element
+An embed object that prints an \code{htmltools::\link[htmltools]{tags}$iframe} element
 }
 \description{
-These functions are used to embed video into your RMarkdown html documents,
-or into your Shiny apps. There are currently functions for you to embed from
-either YouTube or Vimeo.
+These functions are used to embed video into your \strong{rmarkdown} html-documents,
+or into your \strong{shiny} apps. There are functions to embed from
+YouTube, Vimeo, and Microsoft Channel 9 (who host the UseR! 2016 videos).
 }
 \details{
-Both of these services allow you to customize a lot of things by specifying
+These services allow you to customize a lot of things by specifying
 an optional query string. The specification for the query string will differ
 according to the service being used:
 
 \describe{
   \item{YouTube}{\url{https://developers.google.com/youtube/player_parameters}}
   \item{Vimeo}{\url{https://developer.vimeo.com/player/embedding}}
+  \item{Channel 9}{\url{https://channel9.msdn.com/Events/useR-international-R-User-conference/useR2016/Forty-years-of-S}
+  (click the \emph{Embed} tab)}
 }
 }
 \examples{
-embed_vimeo("45196609")
 embed_youtube("dQw4w9WgXcQ")
+embed_vimeo("45196609")
 embed_user2016("Literate-Programming")
-embed_youtube("8SGif63VW6E", query = list(start = secs("4m12s")))
 
+}
+\seealso{
+\code{\link{use_start_time}}
 }
 
