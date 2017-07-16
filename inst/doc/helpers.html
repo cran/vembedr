@@ -4,7 +4,7 @@
 
 <head>
 
-<meta charset="utf-8">
+<meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
 
@@ -12,7 +12,7 @@
 
 <meta name="author" content="Ian Lyttle" />
 
-<meta name="date" content="2017-01-11" />
+<meta name="date" content="2017-07-16" />
 
 <title>Helper functions</title>
 
@@ -70,7 +70,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 <h1 class="title toc-ignore">Helper functions</h1>
 <h4 class="author"><em>Ian Lyttle</em></h4>
-<h4 class="date"><em>2017-01-11</em></h4>
+<h4 class="date"><em>2017-07-16</em></h4>
 
 
 
@@ -86,10 +86,10 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <li><code>&quot;1m0s&quot;</code>, <code>&quot;1m&quot;</code></li>
 <li><code>&quot;60s&quot;</code>, <code>60</code></li>
 </ul>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">embed_youtube</span>(<span class="dt">id =</span> <span class="st">&quot;8SGif63VW6E&quot;</span>) %&gt;%<span class="st"> </span>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">embed_youtube</span>(<span class="dt">id =</span> <span class="st">&quot;8SGif63VW6E&quot;</span>) <span class="op">%&gt;%</span><span class="st"> </span>
 <span class="st">  </span><span class="kw">use_start_time</span>(<span class="st">&quot;4m12s&quot;</span>)</code></pre></div>
 <iframe src="https://www.youtube.com/embed/8SGif63VW6E?start=252" width="420" height="315" frameborder="0" allowfullscreen=""></iframe>
-<p>Hat tip to Aurélien Ginolhac for suggesting this video using this start-time.</p>
+<p>Hat tip to <a href="https://github.com/ginolhac">Aurélien Ginolhac</a> for suggesting this video using this start-time.</p>
 <p>The <code>use_start_time()</code> function can be used with all of the <code>embed()</code> functions.</p>
 <div id="vimeo-caveat" class="section level3">
 <h3>Vimeo caveat</h3>
@@ -101,7 +101,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 <p>If you do not need to customization your iframe (i.e., change the default size), this may be useful to you. Simply provide the URL where the video is hosted - the <code>embed_url()</code> function will determine if the URL is from one of the supported services - if so, it will return the HTML to embed the video.</p>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">embed_url</span>(<span class="st">&quot;https://www.youtube.com/watch?v=q2nNzNo_Xps&quot;</span>)</code></pre></div>
 <iframe src="https://www.youtube.com/embed/q2nNzNo_Xps" width="420" height="315" frameborder="0" allowfullscreen=""></iframe>
-<p>If you need to make additional customization, you can usethe <code>suggest_embed()</code> function (which this function uses) to provide the R code, which you can then modify to your needs.</p>
+<p>If you need to make additional customization, you can use the <code>suggest_embed()</code> function (which this function uses) to provide the R code, which you can then modify to your needs.</p>
 </div>
 <div id="suggest-code" class="section level2">
 <h2>Suggest code</h2>
@@ -150,7 +150,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

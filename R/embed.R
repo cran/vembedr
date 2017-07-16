@@ -32,6 +32,7 @@
 #' embed_youtube("dQw4w9WgXcQ")
 #' embed_vimeo("45196609")
 #' embed_user2016("Literate-Programming")
+#' embed_user2017("Room-202-Lightning-Talks") %>% use_start_time("26m35s")
 #'
 NULL
 
@@ -101,6 +102,22 @@ embed_user2016 <- function(id, width = 560, height = 315,
                            frameborder = 0, allowfullscreen = TRUE){
 
   id <- c("Events", "useR-international-R-User-conference", "useR2016", id)
+
+  embed_channel9(id, width, height, frameborder, allowfullscreen)
+}
+
+#' @rdname embed
+#' @export
+#
+embed_user2017 <- function(id, width = 560, height = 315,
+                           frameborder = 0, allowfullscreen = TRUE){
+
+  id <- c(
+    "Events",
+    "useR-international-R-User-conferences",
+    "useR-International-R-User-2017-Conference",
+    id
+  )
 
   embed_channel9(id, width, height, frameborder, allowfullscreen)
 }
