@@ -3,15 +3,14 @@
 \name{suggest_embed}
 \alias{suggest_embed}
 \alias{suggest_embed_pure}
-\title{Suggest embedding-code based on a URL}
+\title{Suggest embed-code based on URL}
 \usage{
 suggest_embed(url)
 
 suggest_embed_pure(url)
 }
 \arguments{
-\item{url}{character, can be copied from browser location or from
-the "share" output on a video's web page}
+\item{url}{\code{character}, URL of web-page for video}
 }
 \value{
 character, returns the suggested code (\code{suggest_embed} returns invisibly)
@@ -21,14 +20,20 @@ This function is meant to work with URLs from any of the supported services.
 }
 \details{
 \describe{
-  \item{\code{suggest_embed}}{called for the side-effect of
-    printing to the suggested code the screen}
-  \item{\code{suggest_embed_pure}}{returns character string
-    that represents the suggested code}
+\item{\code{suggest_embed}}{called for the side-effect of
+printing suggested code the screen. If you have a recent version
+of \href{https://cran.r-project.org/package=usethis}{usethis}, the code
+will be copied to your clipboard}
+\item{\code{suggest_embed_pure}}{returns character string
+that represents the suggested code}
 }
 }
 \examples{
-suggest_embed("https://youtu.be/1-vcErOPofQ?t=28s")
-suggest_embed("https://www.youtube.com/watch?v=1-vcErOPofQ")
+\dontrun{
+  # not run because it may copy to your clipboard
+  suggest_embed("https://youtu.be/1-vcErOPofQ?t=28s")
+  suggest_embed("https://www.youtube.com/watch?v=1-vcErOPofQ")
+}
+  cat(suggest_embed_pure("https://youtu.be/1-vcErOPofQ?t=28"))
 }
 \keyword{internal}

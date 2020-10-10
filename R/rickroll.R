@@ -1,10 +1,10 @@
-#' Embed a popular video
+#' Embed popular video
 #'
-#' If you want to experiment with the arguments to \code{\link{embed}},
-#' such as \code{query}, but do not have a particular video in mind, this function
+#' If you want to experiment with the arguments to [embed()],
+#' such as `query`, but do not have a particular video in mind, this function
 #' may be useful to you.
 #'
-#' @param ... arguments (other than \code{id}) passed on to \code{\link{embed}}
+#' @param ... arguments (other than `id`) passed on to [embed()]
 #'
 #' @return An embed object that prints an \code{htmltools::\link[htmltools]{tags}$iframe} element
 #'
@@ -20,7 +20,7 @@ NULL
 #' @export
 #
 rickroll_vimeo <- function(...){
-  embed_vimeo(id = "45196609", ...)
+  embed_vimeo(id = "148751763", ...)
 }
 
 #' @rdname rickroll

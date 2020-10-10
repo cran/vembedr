@@ -7,7 +7,7 @@
 \item{lhs, rhs}{An embed object and a function to apply to it}
 }
 \description{
-Like dplyr, vembedr also uses the pipe function, \code{\%>\%} to turn
+Like dplyr, vembedr also uses the pipe function, \verb{\\\%>\\\%} to turn
 function composition into a series of imperative statements.
 }
 \examples{
@@ -16,3 +16,4 @@ use_start_time(rickroll_youtube(), "1m35s")
 # you can write
 rickroll_youtube() \%>\% use_start_time("1m35s")
 }
+\keyword{internal}
