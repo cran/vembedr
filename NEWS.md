@@ -1,3 +1,11 @@
+## vembedr 0.1.5
+
+- updates repository and GitHub actions to reflect default git branch is now `main`. (#55)
+
+- updates `<iframe>` implementation to keep up with pandoc, see [rstudio/rmarkdown#2255](https://github.com/rstudio/rmarkdown/issues/2255). (#52,  @jnolis)
+
+- version bump for development.
+
 ## vembedr 0.1.4
 
 - adds support for [Microsoft Stream](https://www.microsoft.com/en-us/microsoft-365/microsoft-stream), which offers an enterprise video service; this will likely be for use internal to an organization. (#38)
@@ -13,7 +21,7 @@
 
 ## vembedr 0.1.3
 
-- updates README to show some custom formatting (#25, thanks @koncina and @ginolhac)
+- updates README to show some custom formatting (#25, @koncina & @ginolhac)
 - deprecates `hms()` and `secs()` in favor of `use_start_time()` (#24)
 - adds function `embed_user2017()`: embed videos from UseR!2017
 - version bump for development

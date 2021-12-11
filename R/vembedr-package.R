@@ -5,7 +5,6 @@
 #'
 #'  - YouTube
 #'  - Vimeo
-#'  - Microsoft Channel 9
 #'  - Box
 #'  - Microsoft Stream
 #'
@@ -16,9 +15,14 @@
 #'  - **use** functions, to modify the embedding:
 #'      e.g. [use_start_time()], [use_rounded()]
 #'
-#'  You can use the pipe (`%>%`) to chain embed function-calls with
-#'  use function-calls.
+#'  You can use the pipe (`|>` or `%>%`) to chain *embed function-calls* with
+#'  *use function-calls*.
 #'
 #' @docType package
 #' @name vembedr-package
+NULL
+
+## usethis namespace: start
+#' @importFrom lifecycle deprecated
+## usethis namespace: end
 NULL

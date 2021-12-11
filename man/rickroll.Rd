@@ -4,29 +4,28 @@
 \alias{rickroll}
 \alias{rickroll_vimeo}
 \alias{rickroll_youtube}
-\alias{rickroll_channel9}
 \title{Embed popular video}
 \usage{
 rickroll_vimeo(...)
 
 rickroll_youtube(...)
-
-rickroll_channel9(...)
 }
 \arguments{
 \item{...}{arguments (other than \code{id}) passed on to \code{\link[=embed]{embed()}}}
 }
 \value{
-An embed object that prints an \code{htmltools::\link[htmltools]{tags}$iframe} element
+Object with S3 class \code{vembedr_embed}.
 }
 \description{
 If you want to experiment with the arguments to \code{\link[=embed]{embed()}},
 such as \code{query}, but do not have a particular video in mind, this function
 may be useful to you.
 }
+\details{
+Please note that the YouTube video seems no longer embeddable.
+}
 \examples{
   rickroll_vimeo()
   rickroll_youtube()
-  rickroll_channel9()
 
 }
